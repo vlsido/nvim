@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/yalar/.config/nvim/lua/megachel'
+let g:netrw_dirhist_1='/home/yalar/.config/nvim/lua'
+let g:netrw_dirhist_0='/home/yalar/.config/nvim'
+let g:netrw_dirhist_9='/home/yalar/.config/nvim/myPluggers'
+let g:netrw_dirhist_8='/home/yalar/.config/nvim'
+let g:netrw_dirhist_7='/home/yalar/.config'
+let g:netrw_dirhist_6='/home/yalar'
+let g:netrw_dirhist_5='/home/yalar/.config/nvim/lua/megachel'
+let g:netrw_dirhist_4='/home/yalar/.config/nvim/lua'
+let g:netrw_dirhist_3='/home/yalar/.config/nvim'
