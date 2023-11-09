@@ -7,6 +7,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 vim.api.nvim_set_keymap('n', '<C-h>', ':NvimTreeToggle<cr>', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<C-c>', ':NvimTreeFocus<cr>', { silent = true, noremap = true })
 
 local function attachThisLeaf(bufnr)
     local api = require 'nvim-tree.api'
