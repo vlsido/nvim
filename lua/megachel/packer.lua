@@ -1,8 +1,19 @@
-vim.cmd [[packadd packer.nvim]]
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
 	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+	use { 'wbthomason/packer.nvim' }
 
 	-- Rose theme
 	require('packer').startup(function(use)
@@ -27,8 +38,16 @@ return require('packer').startup(function(use)
 	-- PG hz
 	use 'nvim-treesitter/playground'
 
-	-- parmezan
-	use 'theprimeagen/harpoon'
+    -- Commenting code
+    use {
+        'numToStr/Comment.nvim',
+        config = function ()
+            require('Comment').setup()
+        end
+    }
+
+    -- my favret dumb code companion
+    use 'zbirenbaum/copilot.lua'
 
     -- nvim tree
     use {
@@ -58,6 +77,10 @@ return require('packer').startup(function(use)
 		}
 	}
 
+    -- Automatically set up packer
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 
 end)
 
