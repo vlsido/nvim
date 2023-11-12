@@ -1,4 +1,3 @@
-
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
@@ -50,8 +49,47 @@ return require('packer').startup(function(use)
 		end
 	}
 
-	-- my favret dumb code companion
-	use 'zbirenbaum/copilot.lua'
+    -- im tired
+    use('neovim/nvim-lspconfig')
+    use('jose-elias-alvarez/null-ls.nvim')
+    use('MunifTanjim/prettier.nvim')
+    -- my favret dumb code companion
+    use {
+        'zbirenbaum/copilot.lua',
+        cmd = 'Copilot',
+        event = 'InsertEnter',
+        config = function ()
+            require('copilot').setup({    
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                    debounce = 75,
+                    keymap = {
+                        accept = "<Tab>",
+                        accept_word = false,
+                        accept_line = false,
+                        next = "<M-]>",
+                        prev = "<M-[>",
+                        dismiss = "<C-]>",
+                    },
+                },
+                filetypes = {
+                    yaml = false,
+                    markdown = false,
+                    help = false,
+                    gitcommit = false,
+                    gitrebase = false,
+                    hgcommit = false,
+                    svn = false,
+                    cvs = false,
+                    ["."] = false,
+                },
+                copilot_node_command = 'node', -- Node.js version must be > 18.x
+                server_opts_overrides = {},
+            })
+        end,
+    }
+
 
 	-- nvim tree
 	use {

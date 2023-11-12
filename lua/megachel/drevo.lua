@@ -32,7 +32,7 @@ require("nvim-tree").setup({
     on_attach = attachThisLeaf,
   sort_by = "case_sensitive",
   view = {
-    width = 30,
+    width = 20,
   },
   renderer = {
     group_empty = true,
