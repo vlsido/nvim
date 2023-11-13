@@ -1,8 +1,5 @@
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex) 
- 
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
- 
+
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "J", "mzJ`z")
@@ -47,6 +44,7 @@ end)
 
 vim.keymap.set('n', '<CR>', 'i', { noremap = true })
 
-vim.keymap.set('v', '<BS>', 'd', { noremap = true })
+vim.keymap.set('n', '<C-]>', 'gt', { noremap = true })
 
+vim.keymap.set('n', '<C-[>', 'gT', { noremap = true })
 
