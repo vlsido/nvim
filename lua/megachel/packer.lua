@@ -49,7 +49,10 @@ return require('packer').startup(function(use)
 		end
 	}
 
+  use 'lukas-reineke/indent-blankline.nvim'
+
     -- im tired
+    -- make it pretty baby
     use('neovim/nvim-lspconfig')
     use('jose-elias-alvarez/null-ls.nvim')
     use('MunifTanjim/prettier.nvim')
