@@ -19,9 +19,13 @@ return require('packer').startup(function(use)
 	use ({ 'wbthomason/packer.nvim', opt = true })
 
 	-- Rose theme
-	require('packer').startup(function(use)
-		use({ 'rose-pine/neovim', as = 'rose-pine' })
-	end)
+	 require('packer').startup(function(use)
+	 	use({ 'rose-pine/neovim', as = 'rose-pine' })
+	 end)
+
+use 'tjdevries/colorbuddy.nvim'
+
+use 'svrana/neosolarized.nvim'
 
 	use {
 		-- Telescopik	  
@@ -33,7 +37,7 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = function()
-			local ts_update = require('nvim-treesitter.insta)l').update({ with_sync = true })
+			local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
 			ts_update()
 		end,
 	}
@@ -92,7 +96,8 @@ return require('packer').startup(function(use)
             })
         end,
     }
-
+    
+    -- use 'github/copilot.vim'
 
 	-- nvim tree
 	use {

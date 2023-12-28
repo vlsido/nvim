@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "C:\\Users\\PC\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1696883897\\share\\lua\\5.1\\?.lua;C:\\Users\\PC\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1696883897\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\PC\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1696883897\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\PC\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1696883897\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
-local install_cpath_pattern = "C:\\Users\\PC\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1696883897\\lib\\lua\\5.1\\?.so"
+local package_path_str = "C:\\Users\\PC\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1700008891\\share\\lua\\5.1\\?.lua;C:\\Users\\PC\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1700008891\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\PC\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1700008891\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\PC\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1700008891\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
+local install_cpath_pattern = "C:\\Users\\PC\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1700008891\\lib\\lua\\5.1\\?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -90,9 +90,14 @@ _G.packer_plugins = {
     path = "C:\\Users\\PC\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["colorbuddy.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\PC\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\colorbuddy.nvim",
+    url = "https://github.com/tjdevries/colorbuddy.nvim"
+  },
   ["copilot.lua"] = {
     commands = { "Copilot" },
-    config = { "\27LJ\2\ná\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\0024\3\0\0=\3\n\2B\0\2\1K\0\1\0\26server_opts_overrides\14filetypes\1\0\t\bsvn\1\rhgcommit\1\14gitrebase\1\14gitcommit\1\thelp\1\rmarkdown\1\tyaml\1\6.\1\bcvs\1\15suggestion\1\0\1\25copilot_node_command\tnode\vkeymap\1\0\6\fdismiss\n<C-]>\vaccept\n<Tab>\tprev\n<M-[>\16accept_line\1\16accept_word\1\tnext\n<M-]>\1\0\3\rdebounce\3K\17auto_trigger\2\fenabled\2\nsetup\fcopilot\frequire\0" },
+    config = { "\27LJ\2\ná\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\0024\3\0\0=\3\n\2B\0\2\1K\0\1\0\26server_opts_overrides\14filetypes\1\0\t\bcvs\1\bsvn\1\rhgcommit\1\14gitrebase\1\14gitcommit\1\thelp\1\rmarkdown\1\tyaml\1\6.\1\15suggestion\1\0\1\25copilot_node_command\tnode\vkeymap\1\0\6\16accept_word\1\fdismiss\n<C-]>\vaccept\n<Tab>\tnext\n<M-]>\tprev\n<M-[>\16accept_line\1\1\0\3\fenabled\2\rdebounce\3K\17auto_trigger\2\nsetup\fcopilot\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -118,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\PC\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["neosolarized.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\PC\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neosolarized.nvim",
+    url = "https://github.com/svrana/neosolarized.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
