@@ -1,13 +1,17 @@
 require('rose-pine').setup({
 	--- @usage 'auto'|'main'|'moon'|'dawn'
 	variant = 'moon',
-	--- @usage 'main'|'moon'|'dawn'
+  --- @usage 'main'|'moon'|'dawn'
 	dark_variant = 'moon',
 	bold_vert_split = false,
 	dim_nc_background = false,
 	disable_background = true,
 	disable_float_background = false,
-	disable_italics = true,
+
+  styles = {
+    italic = false,
+    transparency = true,
+  },
 
 	--- @usage string hex value or named color from rosepinetheme.com/palette
 	groups = {
@@ -19,7 +23,6 @@ require('rose-pine').setup({
 		comment = 'muted',
 		link = 'iris',
 		punctuation = 'subtle',
-
 		error = 'love',
 		hint = 'iris',
 		info = 'foam',

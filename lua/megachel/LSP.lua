@@ -17,7 +17,7 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'csharp_ls', 'lua_ls', 'vimls'},
+  ensure_installed = {'tsserver', 'csharp_ls', 'lua_ls', 'vimls', 'gradle_ls', 'jdtls', 'clangd', 'cmake'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
