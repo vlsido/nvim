@@ -65,7 +65,14 @@ use 'lukas-reineke/indent-blankline.nvim'
 -- im tired
 -- make it pretty baby
 use('neovim/nvim-lspconfig')
-use('jose-elias-alvarez/null-ls.nvim')
+use {
+  'jose-elias-alvarez/null-ls.nvim',
+  ft = 'go',
+  opts = function()
+    return require 'megachel.null-ls'
+  end,
+}
+
 use('MunifTanjim/prettier.nvim')
 -- my favret dumb code companion
 use {

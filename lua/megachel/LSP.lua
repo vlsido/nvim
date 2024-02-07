@@ -1,4 +1,3 @@
-
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
@@ -15,14 +14,27 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
-require('mason').setup({})
+require('mason').setup({
+})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'csharp_ls', 'lua_ls', 'vimls', 'gradle_ls', 'jdtls', 'clangd', 'cmake'},
+  ensure_installed = {'tsserver', 'csharp_ls', 'lua_ls', 'vimls', 'gradle_ls', 'jdtls', 'clangd', 'cmake', 'golangci_lint_ls', 'gopls'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+    gopls = function()
+      require('lspconfig').gopls.setup {
+        cmd = { 'gopls' },
+        filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+        root_dir = require('lspconfig/util').root_pattern('go.work', 'go_mod', '.git'),
+        settings = {
+          gopls = {
+            completeUnimported = true,
+          },
+        },
+      }
     end,
   }
 })
