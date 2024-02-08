@@ -49,8 +49,6 @@ use {
   'brenoprata10/nvim-highlight-colors',
 }
 
--- PG hz
-use 'nvim-treesitter/playground'
 
 -- Commenting code
 use {
