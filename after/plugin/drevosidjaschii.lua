@@ -3,7 +3,7 @@ ensure_installed = { "diff", "cpp", "c_sharp", "javascript", "typescript", "lua"
 
   sync_install = false,
 
-  auto_install = false,
+  auto_install = true,
 
  highlight = {
     enable = true,

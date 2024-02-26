@@ -1,4 +1,4 @@
-local fn = vim.fn
+    local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -44,6 +44,12 @@ use {
   end,
 }
 
+-- NPM package info
+use {
+  'vuki656/package-info.nvim',
+  requires = 'MunifTanjim/nui.nvim',
+}
+
 -- Highlight colors
 use {
   'brenoprata10/nvim-highlight-colors',
@@ -63,15 +69,9 @@ use 'lukas-reineke/indent-blankline.nvim'
 -- im tired
 -- make it pretty baby
 use('neovim/nvim-lspconfig')
-use {
-  'jose-elias-alvarez/null-ls.nvim',
-  ft = 'go',
-  opts = function()
-    return require 'megachel.null-ls'
-  end,
-}
-
+use('jose-elias-alvarez/null-ls.nvim')
 use('MunifTanjim/prettier.nvim')
+
 -- my favret dumb code companion
 use {
   'zbirenbaum/copilot.lua',
