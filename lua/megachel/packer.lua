@@ -22,6 +22,9 @@ return require('packer').startup(function(use)
     require("packer").sync()
   end
 
+  -- linter
+  use 'mfussenegger/nvim-lint'
+
 	-- Rose theme
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
 
@@ -69,7 +72,6 @@ use 'lukas-reineke/indent-blankline.nvim'
 -- im tired
 -- make it pretty baby
 use('neovim/nvim-lspconfig')
-use('jose-elias-alvarez/null-ls.nvim')
 use('MunifTanjim/prettier.nvim')
 
 -- my favret dumb code companion

@@ -48,3 +48,4 @@ vim.keymap.set('n', '<C-]>', 'gt', { noremap = true })
 
 vim.keymap.set('n', '<C-[>', 'gT', { noremap = true })
 
+vim.keymap.set("n", "<C-x>", ":close<CR>", { noremap = true, silent = true })
