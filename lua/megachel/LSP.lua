@@ -17,24 +17,12 @@ end)
 require('mason').setup({
 })
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'eslint', 'csharp_ls', 'lua_ls', 'vimls', 'gradle_ls', 'jdtls', 'clangd', 'cmake', 'golangci_lint_ls', 'gopls'},
+  ensure_installed = {'lua_ls', 'vimls', 'clangd', 'cmake', },
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
-    end,
-    gopls = function()
-      require('lspconfig').gopls.setup {
-        cmd = { 'gopls' },
-        filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
-        root_dir = require('lspconfig/util').root_pattern('go.work', 'go_mod', '.git'),
-        settings = {
-          gopls = {
-            completeUnimported = true,
-          },
-        },
-      }
     end,
   }
 })

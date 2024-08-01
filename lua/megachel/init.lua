@@ -1,5 +1,5 @@
 require('megachel.packer')
-require('megachel.themeRosePine')
+-- require('megachel.themeRosePine')
 require('megachel.drevo')
 require('megachel.npm-info')
 require('megachel.highlight')
