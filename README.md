@@ -11,3 +11,8 @@ This is a config myself can download and drop it into config folder for any mach
 npm install --global trash-cli
 ```
 
+### Clangd not installing on ARM64 fix
+
+sudo apt install clangd-16
+ln -s /usr/bin/clangd-16 ~/.local/share/nvim/mason/bin/clangd
+mkdir ~/.local/share/nvim/mason/packages/clangd

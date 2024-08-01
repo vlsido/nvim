@@ -14,8 +14,10 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
+
 require('mason').setup({
 })
+
 require('mason-lspconfig').setup({
   ensure_installed = {'lua_ls', 'vimls', 'clangd', 'cmake', },
   handlers = {
@@ -27,10 +29,14 @@ require('mason-lspconfig').setup({
   }
 })
 
+local lspconfig = require('lspconfig')
+
+lspconfig.clangd.setup({
+
+})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
-
 
 cmp.setup({
   sources = {
