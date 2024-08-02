@@ -95,9 +95,14 @@ _G.packer_plugins = {
     path = "C:\\Users\\user\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
+  ["conform.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\user\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   ["copilot.lua"] = {
     commands = { "Copilot" },
-    config = { "\27LJ\2\ná\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\0024\3\0\0=\3\n\2B\0\2\1K\0\1\0\26server_opts_overrides\14filetypes\1\0\t\rmarkdown\1\tyaml\1\6.\1\bcvs\1\bsvn\1\rhgcommit\1\14gitrebase\1\14gitcommit\1\thelp\1\15suggestion\1\0\1\25copilot_node_command\tnode\vkeymap\1\0\6\16accept_line\1\16accept_word\1\vaccept\n<Tab>\fdismiss\n<C-]>\tnext\n<M-]>\tprev\n<M-[>\1\0\3\17auto_trigger\2\fenabled\2\rdebounce\3K\nsetup\fcopilot\frequire\0" },
+    config = { "\27LJ\2\ná\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\0024\3\0\0=\3\n\2B\0\2\1K\0\1\0\26server_opts_overrides\14filetypes\1\0\t\6.\1\bcvs\1\bsvn\1\rhgcommit\1\14gitrebase\1\14gitcommit\1\thelp\1\rmarkdown\1\tyaml\1\15suggestion\1\0\1\25copilot_node_command\tnode\vkeymap\1\0\6\tnext\n<M-]>\tprev\n<M-[>\16accept_line\1\16accept_word\1\vaccept\n<Tab>\fdismiss\n<C-]>\1\0\3\rdebounce\3K\17auto_trigger\2\fenabled\2\nsetup\fcopilot\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -133,11 +138,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\user\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
-  },
-  ["null-ls.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\user\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -189,11 +189,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\user\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["prettier.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\user\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\prettier.nvim",
-    url = "https://github.com/MunifTanjim/prettier.nvim"
   },
   ["rose-pine"] = {
     loaded = true,

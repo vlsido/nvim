@@ -14,6 +14,8 @@ end
 
 vim.cmd("packadd packer.nvim")
 
+
+
 return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use ({ 'wbthomason/packer.nvim', opt = true })
@@ -42,7 +44,7 @@ use {
 use {
   'nvim-treesitter/nvim-treesitter',
   run = function()
-    local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+  local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
     ts_update()
   end,
 }
@@ -72,7 +74,8 @@ use 'lukas-reineke/indent-blankline.nvim'
 -- im tired
 -- make it pretty baby
 use('neovim/nvim-lspconfig')
-use('MunifTanjim/prettier.nvim')
+
+use ('stevearc/conform.nvim')
 
 -- my favret dumb code companion
 use {
@@ -80,7 +83,7 @@ use {
   cmd = 'Copilot',
   event = 'InsertEnter',
   config = function ()
-    require('copilot').setup({    
+    require('copilot').setup({
       suggestion = {
         enabled = true,
         auto_trigger = true,
