@@ -10,7 +10,7 @@ vim.opt.backup = false
 local is_windows = vim.loop.os_uname().version:match("Windows")
 
 if is_windows then
-  undodir = os.getenv('USERPROFILE') .. '\\.vim\\undodir'
+  vim.opt.undodir = os.getenv('USERPROFILE') .. '\\.vim\\undodir'
 else
 vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 end

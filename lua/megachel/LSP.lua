@@ -22,18 +22,34 @@ require('mason-lspconfig').setup({
   ensure_installed = {'lua_ls', 'vimls', 'clangd', 'cmake', },
   handlers = {
     lsp_zero.default_setup,
-    lua_ls = function()
-      local lua_opts = lsp_zero.nvim_lua_ls()
-      require('lspconfig').lua_ls.setup(lua_opts)
-    end,
   }
 })
 
-local lspconfig = require('lspconfig')
+require('mason-lspconfig').setup_handlers {
+  function (server_name)
+    require('lspconfig')[server_name].setup {}
+  end,
 
-lspconfig.clangd.setup({
+  ["lua_ls"] = function()
+    local lua_opts = lsp_zero.nvim_lua_ls()
+    require('lspconfig').lua_ls.setup(lua_opts)
+  end,
+  ["clangd"] = function ()
+    require('lspconfig').clangd.setup{
+      on_attach = function(client, bufnr)
+        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
-})
+
+        -- Mappings.
+        local opts = { noremap=true, silent=true }
+
+        -- Format the current buffer using clangd with CTRL+F
+        buf_set_keymap('n', '<C-F>', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts) 
+      end,
+    }
+  end
+}
+
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
