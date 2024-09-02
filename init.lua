@@ -1,3 +1,3 @@
-require('megachel')
+require("megachel")
 
-print('Mambah')
+print("Mambah")

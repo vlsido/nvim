@@ -50,7 +50,6 @@ require("mason-lspconfig").setup({
 		"cmake",
 		"golangci_lint_ls",
 		"gopls",
-		"prettier",
 	},
 })
 
