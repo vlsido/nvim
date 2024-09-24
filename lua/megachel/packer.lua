@@ -1,25 +1,27 @@
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  })
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
-vim.cmd("packadd packer.nvim")
+local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
   -- Packer can manage itself
-  use({ "wbthomason/packer.nvim", opt = true })
+  local is_windows = vim.loop.os_uname().version:match("Windows")
 
-  if packer_bootstrap then
-    require("packer").sync()
+  if is_windows then
+    use({ "wbthomason/packer.nvim", opt = true })
+  else
+    use({ "wbthomason/packer.nvim" })
   end
 
   -- linter
@@ -111,20 +113,6 @@ return require("packer").startup(function(use)
   -- 		})
   -- 	end,
   -- })
-  use {
-    "Exafunction/codeium.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    config = function()
-      require("codeium").setup({
-      })
-    end
-  }
-
-
-  -- use 'github/copilot.vim'
 
   -- nvim tree
   use({
@@ -153,6 +141,10 @@ return require("packer").startup(function(use)
       { "L3MON4D3/LuaSnip" },
     },
   })
+
+  use {
+    "Exafunction/codeium.vim",
+  }
 
   if packer_bootstrap then
     require("packer").sync()
