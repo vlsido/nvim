@@ -43,8 +43,6 @@ require("mason-lspconfig").setup({
     "csharp_ls",
     "lua_ls",
     "vimls",
-    "gradle_ls",
-    "jdtls",
     "clangd",
     "cmake",
     "golangci_lint_ls",

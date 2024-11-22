@@ -32,7 +32,13 @@ return require("packer").startup(function(use)
 
   use("tjdevries/colorbuddy.nvim")
 
-  use("svrana/neosolarized.nvim")
+  use { "catppuccin/nvim", as = "catppuccin" }
+
+  use("rebelot/kanagawa.nvim")
+
+  use("feline-nvim/feline.nvim")
+
+  -- use("svrana/neosolarized.nvim")
 
   use({
     -- Telescopik
