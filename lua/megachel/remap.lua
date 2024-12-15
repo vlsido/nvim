@@ -42,6 +42,9 @@ vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
 end)
 
+vim.keymap.set({ "n", "v" }, "p", [["0p]])
+vim.keymap.set({ "n", "v" }, "x", [["0d]])
+
 vim.keymap.set("n", "<CR>", "i", { noremap = true })
 
 vim.keymap.set("n", "<C-]>", "gt", { noremap = true })
