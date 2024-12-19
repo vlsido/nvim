@@ -85,6 +85,11 @@ _G.packer_plugins = {
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["aerial.nvim"] = {
+    loaded = true,
+    path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/aerial.nvim",
+    url = "https://github.com/stevearc/aerial.nvim"
+  },
   catppuccin = {
     loaded = true,
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/catppuccin",
@@ -140,11 +145,6 @@ _G.packer_plugins = {
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -179,11 +179,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
-  },
-  ["package-info.nvim"] = {
-    loaded = true,
-    path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/package-info.nvim",
-    url = "https://github.com/vuki656/package-info.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

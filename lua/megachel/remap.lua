@@ -43,6 +43,7 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 vim.keymap.set({ "n", "v" }, "p", [["0p]])
+vim.keymap.set({ "n", "v" }, "d", [["0d]])
 vim.keymap.set({ "n", "v" }, "x", [["0d]])
 
 vim.keymap.set("n", "<CR>", "i", { noremap = true })

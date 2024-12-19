@@ -127,6 +127,12 @@ return require("packer").startup(function(use)
       "nvim-tree/nvim-web-devicons",
     },
   })
+
+  -- aerial
+  use({
+    "stevearc/aerial.nvim",
+  })
+
   -- git wrapper
   use("tpope/vim-fugitive")
 
