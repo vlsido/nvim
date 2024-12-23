@@ -84,41 +84,41 @@ return require("packer").startup(function(use)
   use("stevearc/conform.nvim")
 
   -- my favret dumb code companion
-  -- use({
-  -- 	"zbirenbaum/copilot.lua",
-  -- 	cmd = "Copilot",
-  -- 	event = "InsertEnter",
-  -- 	config = function()
-  -- 		require("copilot").setup({
-  -- 			suggestion = {
-  -- 				enabled = true,
-  -- 				auto_trigger = true,
-  -- 				debounce = 75,
-  -- 				keymap = {
-  -- 					accept = "<Tab>",
-  -- 					accept_word = false,
-  -- 					accept_line = false,
-  -- 					next = "<M-]>",
-  -- 					prev = "<M-[>",
-  -- 					dismiss = "<C-]>",
-  -- 				},
-  -- 			},
-  -- 			filetypes = {
-  -- 				yaml = false,
-  -- 				markdown = false,
-  -- 				help = false,
-  -- 				gitcommit = false,
-  -- 				gitrebase = false,
-  -- 				hgcommit = false,
-  -- 				svn = false,
-  -- 				cvs = false,
-  -- 				["."] = false,
-  -- 			},
-  -- 			copilot_node_command = "node", -- Node.js version must be > 18.x
-  -- 			server_opts_overrides = {},
-  -- 		})
-  -- 	end,
-  -- })
+  use({
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<Tab>",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
+        },
+        filetypes = {
+          yaml = false,
+          markdown = false,
+          help = false,
+          gitcommit = false,
+          gitrebase = false,
+          hgcommit = false,
+          svn = false,
+          cvs = false,
+          ["."] = false,
+        },
+        copilot_node_command = "node", -- Node.js version must be > 18.x
+        server_opts_overrides = {},
+      })
+    end,
+  })
 
   -- nvim tree
   use({
@@ -154,9 +154,9 @@ return require("packer").startup(function(use)
     },
   })
 
-  use {
-    "Exafunction/codeium.vim",
-  }
+  -- use {
+  --   "Exafunction/codeium.vim",
+  -- }
 
   if packer_bootstrap then
     require("packer").sync()
