@@ -110,15 +110,6 @@ _G.packer_plugins = {
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/conform.nvim",
     url = "https://github.com/stevearc/conform.nvim"
   },
-  ["copilot.lua"] = {
-    commands = { "Copilot" },
-    config = { "\27LJ\2\n—\3\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\0024\3\0\0=\3\n\2B\0\2\1K\0\1\0\26server_opts_overrides\14filetypes\1\0\t\thelp\1\rmarkdown\1\tyaml\1\6.\1\bcvs\1\bsvn\1\rhgcommit\1\14gitrebase\1\14gitcommit\1\15suggestion\1\0\4\26server_opts_overrides\0\14filetypes\0\25copilot_node_command\tnode\15suggestion\0\vkeymap\1\0\6\16accept_line\1\16accept_word\1\tnext\n<M-]>\fdismiss\n<C-]>\vaccept\n<Tab>\tprev\n<M-[>\1\0\4\rdebounce\3K\17auto_trigger\2\fenabled\2\vkeymap\0\nsetup\fcopilot\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/opt/copilot.lua",
-    url = "https://github.com/zbirenbaum/copilot.lua"
-  },
   ["feline.nvim"] = {
     loaded = true,
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/feline.nvim",
@@ -163,6 +154,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/nvim-lint",
     url = "https://github.com/mfussenegger/nvim-lint"
+  },
+  ["nvim-lsp-file-operations"] = {
+    config = { "\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24lsp-file-operations\frequire\0" },
+    loaded = true,
+    path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/nvim-lsp-file-operations",
+    url = "https://github.com/antosha417/nvim-lsp-file-operations"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -216,25 +213,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
-
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Copilot', function(cmdargs)
-          require('packer.load')({'copilot.lua'}, { cmd = 'Copilot', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'copilot.lua'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Copilot ', 'cmdline')
-      end})
-time([[Defining lazy-load commands]], false)
-
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Event lazy-loads
-time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'copilot.lua'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
-time([[Defining lazy-load event autocommands]], false)
-vim.cmd("augroup END")
+-- Config for: nvim-lsp-file-operations
+time([[Config for nvim-lsp-file-operations]], true)
+try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24lsp-file-operations\frequire\0", "config", "nvim-lsp-file-operations")
+time([[Config for nvim-lsp-file-operations]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
