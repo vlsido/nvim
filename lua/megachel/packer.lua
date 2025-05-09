@@ -27,8 +27,11 @@ return require("packer").startup(function(use)
   -- linter
   use("mfussenegger/nvim-lint")
 
-use("mfussenegger/nvim-dap")
+  use("mfussenegger/nvim-dap")
 
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+
+  use("theHamsta/nvim-dap-virtual-text");
 
   -- Rose theme
   use({ "rose-pine/neovim", as = "rose-pine" })
