@@ -40,13 +40,10 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
   ensure_installed = {
     "eslint",
-    "csharp_ls",
     "lua_ls",
     "vimls",
     "clangd",
     "cmake",
-    "golangci_lint_ls",
-    "gopls",
   },
 })
 
