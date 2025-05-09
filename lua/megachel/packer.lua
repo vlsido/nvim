@@ -27,6 +27,9 @@ return require("packer").startup(function(use)
   -- linter
   use("mfussenegger/nvim-lint")
 
+use("mfussenegger/nvim-dap")
+
+
   -- Rose theme
   use({ "rose-pine/neovim", as = "rose-pine" })
 
@@ -43,7 +46,7 @@ return require("packer").startup(function(use)
   use({
     -- Telescopik
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.4",
+    tag = "0.1.8",
     requires = { { "nvim-lua/plenary.nvim" } },
   })
 
