@@ -27,6 +27,9 @@ return require("packer").startup(function(use)
   -- linter
   use("mfussenegger/nvim-lint")
 
+  -- Java jdtls
+  use("mfussenegger/nvim-jdtls")
+
   -- Rose theme
   use({ "rose-pine/neovim", as = "rose-pine" })
 
@@ -57,10 +60,10 @@ return require("packer").startup(function(use)
   })
 
   -- NPM package info
-  -- use({
-  --   "vuki656/package-info.nvim",
-  --   requires = "MunifTanjim/nui.nvim",
-  -- })
+  use({
+    "vuki656/package-info.nvim",
+    requires = "MunifTanjim/nui.nvim",
+  })
 
   -- Highlight colors
   use({

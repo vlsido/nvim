@@ -71,6 +71,30 @@ require("mason-lspconfig").setup_handlers({
       },
     })
   end,
+  ["snyk_ls"] = function()
+    require("lspconfig").snyk_ls.setup({
+      cmd = { 'snyk-ls' },
+      filetypes = {
+        'go',
+        'gomod',
+        'javascript',
+        'typescript',
+        'json',
+        'python',
+        'requirements',
+        'helm',
+        'yaml',
+        'terraform',
+        'terraform-vars',
+      },
+      single_file_support = true,
+      settings = {},
+      -- Configuration from https://github.com/snyk/snyk-ls#configuration-1
+      init_options = {
+        activateSnykCode = 'true',
+      },
+    })
+  end,
 
   ["clangd"] = function()
     require("lspconfig").clangd.setup({
