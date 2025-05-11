@@ -37,6 +37,8 @@ end)
 
 require("mason").setup({})
 
+require("mason-nvim-dap").setup()
+
 require("mason-lspconfig").setup({
   ensure_installed = {
     "eslint",
