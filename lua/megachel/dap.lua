@@ -1,11 +1,26 @@
+-- local dap = require("dap")
+-- local dapui = require("dapui")
+--
 local dap, dapui = require("dap"), require("dapui")
-
 dap.adapters.codelldb = {
   type = "server",
   port = "${port}",
   executable = {
     command = "codelldb",
     args = { "--port", "${port}" },
+  },
+}
+  
+dap.configurations.cpp = {
+  {
+    name = "codelldb",
+    type = "cpp",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,                       
+    cwd = '${workspaceFolder}',
+    externalTerminal = false,                       stopOnEntry = false,                            args = {}
   },
 }
 
