@@ -30,9 +30,6 @@ return require("packer").startup(function(use)
   -- Java jdtls
   use("mfussenegger/nvim-jdtls")
 
-  -- Rose theme
-  use({ "rose-pine/neovim", as = "rose-pine" })
-
   use("tjdevries/colorbuddy.nvim")
 
   use { "catppuccin/nvim", as = "catppuccin" }
