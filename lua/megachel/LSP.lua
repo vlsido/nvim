@@ -41,11 +41,13 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "eslint",
     "lua_ls",
+    "jdtls",
     "vimls",
     "clangd",
     "cmake",
   },
 })
+
 
 -- require("mason-lspconfig").setup_handlers({
   -- function(server_name)
@@ -103,3 +105,4 @@ cmp.setup({
     ["<C-Space>"] = cmp.mapping.complete(),
   }),
 })
+
