@@ -3,6 +3,8 @@ local jdtls = require("jdtls")
 local home = os.getenv("HOME")
 local workspace_dir = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
+local lombok_path = home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar";
+
 local config = {
   cmd = {
     "java", -- or '/path/to/java11_or_newer/bin/java'
@@ -15,6 +17,7 @@ local config = {
     "--add-modules=ALL-SYSTEM",
     "--add-opens", "java.base/java.util=ALL-UNNAMED",
     "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+    "-javaagent:" .. lombok_path,
     "-jar", vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
     "-configuration", home .. "/.local/share/nvim/mason/packages/jdtls/config_linux", -- Adjust for your OS
     "-data", workspace_dir,
