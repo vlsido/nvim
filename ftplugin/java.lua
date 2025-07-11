@@ -49,7 +49,11 @@ local config = {
     },
   },
   init_options = {
-    bundles = {},
+    bundles = {
+      vim.fn.glob(
+      "/Users/parsivoe/.m2/repository/com/microsoft/java/com.microsoft.java.debug.plugin/0.53.2/com.microsoft.java.debug.plugin-*.jar",
+        1)
+    },
   },
 }
 

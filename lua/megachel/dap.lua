@@ -10,11 +10,14 @@ dap.configurations.cpp = {
     request = "launch",
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,                       
+    end,
     cwd = '${workspaceFolder}',
-    externalTerminal = false,                       stopOnEntry = false,                            args = {}
+    externalTerminal = false,
+    stopOnEntry = false,
+    args = {}
   },
 }
+
 
 dap.adapters.cpp = {
   type = "server",
@@ -24,7 +27,30 @@ dap.adapters.cpp = {
     args = { "--port", "${port}" },
   },
 }
-  
+
+
+-- dap.configurations.java = {
+--   {
+--     name = "java-debug-adapter",
+--     type = "java",
+--     request = "launch",
+--     program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--     cwd = '${workspaceFolder}',
+--     externalTerminal = false,
+--     stopOnEntry = false,
+--     args = {}
+--   },
+-- }
+-- dap.adapters.java = {
+--   type = "server",
+--   port = "${port}",
+--   executable = {
+--     command = "java-debug-adapter",
+--     args = { "--port", "${port}" },
+--   },
+-- }
 
 dapui.setup()
 

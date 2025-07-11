@@ -48,45 +48,6 @@ require("mason-lspconfig").setup({
   },
 })
 
-
--- require("mason-lspconfig").setup_handlers({
-  -- function(server_name)
-  --   require("lspconfig")[server_name].setup({})
-  -- end,
-  --
-  -- ["lua_ls"] = function()
-  --   local lua_opts = lsp_zero.nvim_lua_ls()
-  --   require("lspconfig").lua_ls.setup(lua_opts)
-  -- end,
-  -- ["gopls"] = function()
-  --   require("lspconfig").gopls.setup({
-  --     cmd = { "gopls" },
-  --     filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  --     root_dir = require("lspconfig/util").root_pattern("go.work", "go_mod", ".git"),
-  --     settings = {
-  --       gopls = {
-  --         completeUnimported = true,
-  --       },
-  --     },
-  --   })
-  -- end,
-  --
-  -- ["clangd"] = function()
-  --   require("lspconfig").clangd.setup({
-  --     on_attach = function(client, bufnr)
-  --       local function buf_set_keymap(...)
-  --         vim.api.nvim_buf_set_keymap(bufnr, ...)
-  --       end
-  --       -- Mappings.
-  --       local opts = { noremap = true, silent = true }
-  --
-  --       -- Format the current buffer using clangd with CTRL+F
-  --       buf_set_keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
-  --     end,
-  --   })
-  -- end,
--- })
-
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -105,4 +66,3 @@ cmp.setup({
     ["<C-Space>"] = cmp.mapping.complete(),
   }),
 })
-
