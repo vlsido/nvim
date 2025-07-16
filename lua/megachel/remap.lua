@@ -28,7 +28,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 local dap = require("dap")
 
-vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
+vim.keymap.set("n", "<C-b>", dap.toggle_breakpoint)
 
 vim.keymap.set("n", "<space>?", function()
   require("dapui").eval(nil, { enter = true })

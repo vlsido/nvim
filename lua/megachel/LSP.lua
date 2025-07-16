@@ -45,6 +45,20 @@ require("mason-lspconfig").setup({
     "vimls",
     "clangd",
     "cmake",
+    "snyk_ls",
+  },
+  automatic_enable = {
+    exclude = { "snyk_ls" }
+  },
+})
+
+require("lspconfig").snyk_ls.setup({
+  cmd = { "snyk-ls" },
+  filetypes = { "java", "go", "gomod", "javascript", "typescript", "python", "yaml", "terraform", "json" },
+  root_dir = require("lspconfig.util").root_pattern(".git", ".snyk", "pom.xml", "build.gradle"),
+  init_options = {
+    activateSnykCode = "true",
+    token = os.getenv("SNYK_TOKEN")
   },
 })
 
