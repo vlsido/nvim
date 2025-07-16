@@ -1,6 +1,3 @@
--- local dap = require("dap")
--- local dapui = require("dapui")
---
 local dap, dapui = require("dap"), require("dapui")
 
 dap.configurations.cpp = {

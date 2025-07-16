@@ -29,14 +29,11 @@ return require("packer").startup(function(use)
 
   use("mfussenegger/nvim-dap")
 
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
 
   use("theHamsta/nvim-dap-virtual-text");
   -- Java jdtls
   use("mfussenegger/nvim-jdtls")
-
-  -- Rose theme
-  use({ "rose-pine/neovim", as = "rose-pine" })
 
   use("tjdevries/colorbuddy.nvim")
 
@@ -163,7 +160,7 @@ return require("packer").startup(function(use)
     branch = "v3.x",
     requires = {
       --- Uncomment these if you want to manage LSP servers from neovim
-      { "williamboman/mason.nvim", version = "^1.0.0" },
+      { "williamboman/mason.nvim",           version = "^1.0.0" },
       { "williamboman/mason-lspconfig.nvim", version = "^1.0.0" },
 
       -- LSP Support

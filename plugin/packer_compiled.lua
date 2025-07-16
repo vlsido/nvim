@@ -226,11 +226,6 @@ _G.packer_plugins = {
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["rose-pine"] = {
-    loaded = true,
-    path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/telescope.nvim",
