@@ -46,6 +46,10 @@ return require("packer").startup(function(use)
   -- use("svrana/neosolarized.nvim")
 
   use({
+    "nvim-lua/plenary.nvim", branch = "master"
+  })
+
+  use({
     -- Telescopik
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
@@ -60,6 +64,29 @@ return require("packer").startup(function(use)
       ts_update()
     end,
   })
+
+  use({
+    "olimorris/codecompanion.nvim",
+    config = function()
+      require("codecompanion").setup({
+        strategies = {
+          name = "copilot",
+          model = "gpt-4.1",
+        }
+      })
+    end,
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    }
+  })
+
+  -- use({
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   ft = { "markdown", "codecompanion" }
+  -- })
+
+
 
   -- NPM package info
   use({
@@ -89,41 +116,41 @@ return require("packer").startup(function(use)
   use("stevearc/conform.nvim")
 
   -- my favret dumb code companion
-  -- use({
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require("copilot").setup({
-  --       suggestion = {
-  --         enabled = true,
-  --         auto_trigger = true,
-  --         debounce = 75,
-  --         keymap = {
-  --           accept = "<Tab>",
-  --           accept_word = false,
-  --           accept_line = false,
-  --           next = "<M-]>",
-  --           prev = "<M-[>",
-  --           dismiss = "<C-]>",
-  --         },
-  --       },
-  --       filetypes = {
-  --         yaml = false,
-  --         markdown = false,
-  --         help = false,
-  --         gitcommit = false,
-  --         gitrebase = false,
-  --         hgcommit = false,
-  --         svn = false,
-  --         cvs = false,
-  --         ["."] = false,
-  --       },
-  --       copilot_node_command = "node", -- Node.js version must be > 18.x
-  --       server_opts_overrides = {},
-  --     })
-  --   end,
-  -- })
+  use({
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<Tab>",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
+        },
+        filetypes = {
+          yaml = false,
+          markdown = false,
+          help = false,
+          gitcommit = false,
+          gitrebase = false,
+          hgcommit = false,
+          svn = false,
+          cvs = false,
+          ["."] = false,
+        },
+        copilot_node_command = "node", -- Node.js version must be > 18.x
+        server_opts_overrides = {},
+      })
+    end,
+  })
 
   -- nvim tree
   use({
@@ -135,6 +162,9 @@ return require("packer").startup(function(use)
 
 
   -- please please change file import paths when I move files around PLEASE (it's 04:25 AM)
+
+
+
   use {
     "antosha417/nvim-lsp-file-operations",
     requires = {

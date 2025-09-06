@@ -1,4 +1,5 @@
 vim.opt.nu = true
+vim.opt.relativenumber = true
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.tabstop = 2
@@ -13,14 +14,14 @@ local is_windows = vim.loop.os_uname().version:match("Windows")
 if is_windows then
   vim.opt.undodir = os.getenv('USERPROFILE') .. '\\.vim\\undodir'
 else
-vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
+  vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 end
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.scrolloff = 6
+vim.opt.scrolloff = 20
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
