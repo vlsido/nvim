@@ -52,40 +52,18 @@ return require("packer").startup(function(use)
   use({
     -- Telescopik
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.8",
     requires = { { "nvim-lua/plenary.nvim" } },
   })
 
   -- Highlight
   use({
     "nvim-treesitter/nvim-treesitter",
+    requires = "OXY2DEV/markview.nvim",
     run = function()
       local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
       ts_update()
     end,
   })
-
-  use({
-    "olimorris/codecompanion.nvim",
-    config = function()
-      require("codecompanion").setup({
-        strategies = {
-          name = "copilot",
-          model = "gpt-4.1",
-        }
-      })
-    end,
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    }
-  })
-
-  -- use({
-  --   "MeanderingProgrammer/render-markdown.nvim",
-  --   ft = { "markdown", "codecompanion" }
-  -- })
-
 
 
   -- NPM package info
@@ -115,6 +93,29 @@ return require("packer").startup(function(use)
 
   use("stevearc/conform.nvim")
 
+  use({
+    'OXY2DEV/markview.nvim',
+    after = { 'nvim-treesitter' },
+    config = function()
+      require('markview').setup({
+        preview = {
+          filetypes = { "markdown", "codecompanion" }
+        }
+      })
+    end,
+  })
+
+  use {
+    "echasnovski/mini.diff",
+    config = function()
+      local diff = require("mini.diff")
+      diff.setup({
+        -- Disabled by default
+        source = diff.gen_source.none(),
+      })
+    end,
+  }
+
   -- my favret dumb code companion
   use({
     "zbirenbaum/copilot.lua",
@@ -123,34 +124,49 @@ return require("packer").startup(function(use)
     config = function()
       require("copilot").setup({
         suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          debounce = 75,
-          keymap = {
-            accept = "<Tab>",
-            accept_word = false,
-            accept_line = false,
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<C-]>",
-          },
+          enabled = false,
+          -- auto_trigger = true,
+          -- debounce = 75,
+          -- keymap = {
+          --   accept = "<Tab>",
+          --   accept_word = false,
+          --   accept_line = false,
+          --   next = "<M-]>",
+          --   prev = "<M-[>",
+          --   dismiss = "<C-]>",
+          -- },
         },
         filetypes = {
-          yaml = false,
-          markdown = false,
-          help = false,
-          gitcommit = false,
-          gitrebase = false,
-          hgcommit = false,
-          svn = false,
-          cvs = false,
-          ["."] = false,
+          -- yaml = false,
+          -- markdown = false,
+          -- help = false,
+          -- gitcommit = false,
+          -- gitrebase = false,
+          -- hgcommit = false,
+          -- svn = false,
+          -- cvs = false,
+          -- ["."] = false,
+          ["*"] = false
         },
         copilot_node_command = "node", -- Node.js version must be > 18.x
         server_opts_overrides = {},
       })
     end,
   })
+
+  use {
+    'olimorris/codecompanion.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+  }
+
+  -- use {
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   ft = { "markdown", "codecompanion" },
+  -- }
+
 
   -- nvim tree
   use({
