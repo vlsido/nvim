@@ -18,7 +18,6 @@ end)
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
@@ -26,9 +25,10 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
+
 local dap = require("dap")
 
-vim.keymap.set("n", "<C-b>", dap.toggle_breakpoint)
+vim.keymap.set("n", "b", dap.toggle_breakpoint)
 
 vim.keymap.set("n", "<space>?", function()
   require("dapui").eval(nil, { enter = true })
@@ -42,6 +42,7 @@ vim.keymap.set("n", "<F12>", dap.restart)
 
 
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "cc", "<nop>")
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<C-n>", "<cmd>cclose<CR>zz")
@@ -67,3 +68,5 @@ vim.keymap.set("n", "<C-]>", "gt", { noremap = true })
 vim.keymap.set("n", "<C-[>", "gT", { noremap = true })
 
 vim.keymap.set("n", "<C-x>", ":close<CR>", { noremap = true, silent = true })
+
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true, desc = 'Exit terminal mode' })
