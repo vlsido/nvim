@@ -115,6 +115,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use({
+		"lewis6991/gitsigns.nvim",
+	})
+
 	-- my favret dumb code companion
 	use({
 		"zbirenbaum/copilot.lua",

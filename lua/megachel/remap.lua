@@ -9,10 +9,10 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "<leader>vwm", function()
-  require("vim-with-me").StartVimWithMe()
+	require("vim-with-me").StartVimWithMe()
 end)
 vim.keymap.set("n", "<leader>svwm", function()
-  require("vim-with-me").StopVimWithMe()
+	require("vim-with-me").StopVimWithMe()
 end)
 
 -- greatest remap ever
@@ -25,13 +25,12 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
-
 local dap = require("dap")
 
 vim.keymap.set("n", "b", dap.toggle_breakpoint)
 
 vim.keymap.set("n", "<space>?", function()
-  require("dapui").eval(nil, { enter = true })
+	require("dapui").eval(nil, { enter = true })
 end)
 vim.keymap.set("n", "<F1>", dap.continue)
 vim.keymap.set("n", "<F2>", dap.step_into)
@@ -40,8 +39,8 @@ vim.keymap.set("n", "<F4>", dap.step_out)
 vim.keymap.set("n", "<F5>", dap.step_back)
 vim.keymap.set("n", "<F12>", dap.restart)
 
-
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<C-l>", "<nop>")
 vim.keymap.set("n", "cc", "<nop>")
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
@@ -49,12 +48,27 @@ vim.keymap.set("n", "<C-n>", "<cmd>cclose<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+-- /* Windows size */
+-- NOPs
+vim.keymap.set("n", "<C-v>", "<nop>")
+vim.keymap.set("n", "<C-.>", "<nop>")
+vim.keymap.set("n", ".", "<nop>")
+vim.keymap.set("n", ";", "<nop>")
+vim.keymap.set("n", "'", "<nop>")
+-- Mappings
+vim.keymap.set("n", "<C-,>", "<C-w>10<")
+vim.keymap.set("n", "<C-.>", "<C-w>10>")
+vim.keymap.set("n", "<C-;>", "<C-w>3+")
+vim.keymap.set("n", "<C-'>", "<C-w>3-")
+
+-- [END] Windows size
+
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("so")
+	vim.cmd("so")
 end)
 
 vim.keymap.set({ "n", "v" }, "p", [["0p]])
@@ -69,4 +83,4 @@ vim.keymap.set("n", "<C-[>", "gT", { noremap = true })
 
 vim.keymap.set("n", "<C-x>", ":close<CR>", { noremap = true, silent = true })
 
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true, desc = 'Exit terminal mode' })
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Exit terminal mode" })
