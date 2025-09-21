@@ -163,6 +163,10 @@ return require("packer").startup(function(use)
     "lewis6991/gitsigns.nvim",
   })
 
+  use({
+    "j-hui/fidget.nvim",
+  })
+
   -- my favret dumb code companion
   -- use({
   -- 	"zbirenbaum/copilot.lua",
