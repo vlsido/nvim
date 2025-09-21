@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/dressing.nvim",
     url = "https://github.com/stevearc/dressing.nvim"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/parsivoe/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -289,18 +294,18 @@ time([[Defining packer_plugins]], false)
 time([[Config for mini.diff]], true)
 try_loadstring("\27LJ\2\nm\0\0\6\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\5\0009\4\3\0009\4\4\4B\4\1\2=\4\6\3B\1\2\1K\0\1\0\vsource\1\0\1\vsource\0\tnone\15gen_source\nsetup\14mini.diff\frequire\0", "config", "mini.diff")
 time([[Config for mini.diff]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
--- Config for: render-markdown.nvim
-time([[Config for render-markdown.nvim]], true)
-try_loadstring("\27LJ\2\n­\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\15file_types\1\3\0\0\rmarkdown\18codecompanion\nlatex\1\0\3\17render_modes\2\15file_types\0\nlatex\0\1\0\1\fenabled\1\nsetup\20render-markdown\frequire\0", "config", "render-markdown.nvim")
-time([[Config for render-markdown.nvim]], false)
 -- Config for: nvim-lsp-file-operations
 time([[Config for nvim-lsp-file-operations]], true)
 try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24lsp-file-operations\frequire\0", "config", "nvim-lsp-file-operations")
 time([[Config for nvim-lsp-file-operations]], false)
+-- Config for: render-markdown.nvim
+time([[Config for render-markdown.nvim]], true)
+try_loadstring("\27LJ\2\n­\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\15file_types\1\3\0\0\rmarkdown\18codecompanion\nlatex\1\0\3\17render_modes\2\15file_types\0\nlatex\0\1\0\1\fenabled\1\nsetup\20render-markdown\frequire\0", "config", "render-markdown.nvim")
+time([[Config for render-markdown.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

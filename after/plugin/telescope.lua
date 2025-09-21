@@ -8,9 +8,27 @@ end
 
 require("telescope").setup({
   defaults = {
+    layout_strategy = "horizontal",
+    layout_config = {
+      height = 0.95,
+      width = 0.95,
+      prompt_position = 'bottom',
+      preview_cutoff = 1,
+    },
     mappings = {
       i = { ["<CR>"] = open_after_tree },
       n = { ["<CR>"] = open_after_tree },
+    },
+  },
+  pickers = {
+    find_files = {
+      layout_strategy = 'horizontal',
+      layout_config = {
+        height = 0.95,
+        width = 0.95,
+        prompt_position = 'bottom',
+        preview_cutoff = 1,
+      },
     },
   },
 })

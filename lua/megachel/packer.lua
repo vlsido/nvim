@@ -40,7 +40,7 @@ return require("packer").startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
-  -- requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    -- requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
   use({
@@ -159,6 +159,47 @@ return require("packer").startup(function(use)
       "ravitemer/codecompanion-history.nvim",
     },
   })
+  use({
+    "lewis6991/gitsigns.nvim",
+  })
+
+  -- my favret dumb code companion
+  -- use({
+  -- 	"zbirenbaum/copilot.lua",
+  -- 	cmd = "Copilot",
+  -- 	event = "InsertEnter",
+  -- 	config = function()
+  -- 		require("copilot").setup({
+  -- 			suggestion = {
+  -- 				enabled = false,
+  -- 				-- auto_trigger = true,
+  -- 				-- debounce = 75,
+  -- 				-- keymap = {
+  -- 				--   accept = "<Tab>",
+  -- 				--   accept_word = false,
+  -- 				--   accept_line = false,
+  -- 				--   next = "<M-]>",
+  -- 				--   prev = "<M-[>",
+  -- 				--   dismiss = "<C-]>",
+  -- 				-- },
+  -- 			},
+  -- 			filetypes = {
+  -- 				-- yaml = false,
+  -- 				-- markdown = false,
+  -- 				-- help = false,
+  -- 				-- gitcommit = false,
+  -- 				-- gitrebase = false,
+  -- 				-- hgcommit = false,
+  -- 				-- svn = false,
+  -- 				-- cvs = false,
+  -- 				-- ["."] = false,
+  -- 				["*"] = false,
+  -- 			},
+  -- 			copilot_node_command = "node", -- Node.js version must be > 18.x
+  -- 			server_opts_overrides = {},
+  -- 		})
+  -- 	end,
+  -- })
 
   -- nvim tree
   use({
