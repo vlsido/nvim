@@ -9,10 +9,10 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "<leader>vwm", function()
-  require("vim-with-me").StartVimWithMe()
+	require("vim-with-me").StartVimWithMe()
 end)
 vim.keymap.set("n", "<leader>svwm", function()
-  require("vim-with-me").StopVimWithMe()
+	require("vim-with-me").StopVimWithMe()
 end)
 
 -- greatest remap ever
@@ -30,7 +30,7 @@ local dap = require("dap")
 vim.keymap.set("n", "b", dap.toggle_breakpoint)
 
 vim.keymap.set("n", "<space>?", function()
-  require("dapui").eval(nil, { enter = true })
+	require("dapui").eval(nil, { enter = true })
 end)
 vim.keymap.set("n", "<F1>", dap.continue)
 vim.keymap.set("n", "<F2>", dap.step_into)
@@ -94,7 +94,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("so")
+	vim.cmd("so")
 end)
 
 vim.keymap.set({ "n", "v" }, "p", [["0p]])
@@ -113,3 +113,8 @@ vim.keymap.set("n", "<C-[>", "gT", { noremap = true })
 vim.keymap.set("n", "<C-x>", ":close<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Exit terminal mode" })
+
+-- Put this in your init.lua or a plugin/config file
+vim.keymap.set("i", "<C-s>", function()
+	vim.lsp.buf.hover()
+end, { desc = "LSP Hover (insert mode)" })
