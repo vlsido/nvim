@@ -118,3 +118,6 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true, de
 vim.keymap.set("i", "<C-s>", function()
 	vim.lsp.buf.hover()
 end, { desc = "LSP Hover (insert mode)" })
+
+vim.keymap.set("v", "<C-v>", '"_dP', { noremap = true })
+vim.keymap.set("v", "<C-v>", "<C-r>+", { noremap = true })
