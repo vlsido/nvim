@@ -115,7 +115,7 @@ return require("packer").startup(function(use)
 					auto_trigger = false,
 					debounce = 75,
 					keymap = {
-						accept = "<C-Enter>",
+						accept = "<C-a>",
 						accept_word = false,
 						accept_line = false,
 						next = "<C-s>",
@@ -168,44 +168,6 @@ return require("packer").startup(function(use)
 	use({
 		"j-hui/fidget.nvim",
 	})
-
-	-- my favret dumb code companion
-	-- use({
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = "Copilot",
-	-- 	event = "InsertEnter",
-	-- 	config = function()
-	-- 		require("copilot").setup({
-	-- 			suggestion = {
-	-- 				enabled = false,
-	-- 				-- auto_trigger = true,
-	-- 				-- debounce = 75,
-	-- 				-- keymap = {
-	-- 				--   accept = "<Tab>",
-	-- 				--   accept_word = false,
-	-- 				--   accept_line = false,
-	-- 				--   next = "<M-]>",
-	-- 				--   prev = "<M-[>",
-	-- 				--   dismiss = "<C-]>",
-	-- 				-- },
-	-- 			},
-	-- 			filetypes = {
-	-- 				-- yaml = false,
-	-- 				-- markdown = false,
-	-- 				-- help = false,
-	-- 				-- gitcommit = false,
-	-- 				-- gitrebase = false,
-	-- 				-- hgcommit = false,
-	-- 				-- svn = false,
-	-- 				-- cvs = false,
-	-- 				-- ["."] = false,
-	-- 				["*"] = false,
-	-- 			},
-	-- 			copilot_node_command = "node", -- Node.js version must be > 18.x
-	-- 			server_opts_overrides = {},
-	-- 		})
-	-- 	end,
-	-- })
 
 	-- nvim tree
 	use({
