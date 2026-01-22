@@ -1,226 +1,228 @@
 local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
+  local fn = vim.fn
+  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
+    return true
+  end
+  return false
 end
 
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
-	-- Packer can manage itself
-	local is_windows = vim.loop.os_uname().version:match("Windows")
+  -- Packer can manage itself
+  local is_windows = vim.loop.os_uname().version:match("Windows")
 
-	if is_windows then
-		use({ "wbthomason/packer.nvim", opt = true })
-	else
-		use({ "wbthomason/packer.nvim" })
-	end
+  if is_windows then
+    use({ "wbthomason/packer.nvim", opt = true })
+  else
+    use({ "wbthomason/packer.nvim" })
+  end
 
-	-- linter
-	use("mfussenegger/nvim-lint")
+  -- linter
+  use("mfussenegger/nvim-lint")
 
-	use("mfussenegger/nvim-dap")
+  use("mfussenegger/nvim-dap")
 
-	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
+  use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
 
-	use("theHamsta/nvim-dap-virtual-text")
-	-- Java jdtls
-	use("mfussenegger/nvim-jdtls")
+  use("leoluz/nvim-dap-go")
 
-	use("tjdevries/colorbuddy.nvim")
+  use("theHamsta/nvim-dap-virtual-text")
+  -- Java jdtls
+  use("mfussenegger/nvim-jdtls")
 
-	use({ "catppuccin/nvim", as = "catppuccin" })
+  use("tjdevries/colorbuddy.nvim")
 
-	use("rebelot/kanagawa.nvim")
+  use({ "catppuccin/nvim", as = "catppuccin" })
 
-	use({
-		"nvim-lualine/lualine.nvim",
-		-- requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-	})
+  use("rebelot/kanagawa.nvim")
 
-	use({
-		"nvim-lua/plenary.nvim",
-		branch = "master",
-	})
+  use({
+    "nvim-lualine/lualine.nvim",
+    -- requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  })
 
-	use({
-		-- Telescopik
-		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+  use({
+    "nvim-lua/plenary.nvim",
+    branch = "master",
+  })
 
-	-- Highlight
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
-		end,
-	})
+  use({
+    -- Telescopik
+    "nvim-telescope/telescope.nvim",
+    requires = { { "nvim-lua/plenary.nvim" } },
+  })
 
-	-- NPM package info
-	use({
-		"vuki656/package-info.nvim",
-		requires = "MunifTanjim/nui.nvim",
-	})
+  -- Highlight
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+      ts_update()
+    end,
+  })
 
-	-- Highlight colors
-	use({
-		"brenoprata10/nvim-highlight-colors",
-	})
+  -- NPM package info
+  use({
+    "vuki656/package-info.nvim",
+    requires = "MunifTanjim/nui.nvim",
+  })
 
-	-- Commenting code
+  -- Highlight colors
+  use({
+    "brenoprata10/nvim-highlight-colors",
+  })
 
-	use({
-		"JoosepAlviste/nvim-ts-context-commentstring",
-	})
+  -- Commenting code
 
-	use({
-		"numToStr/Comment.nvim",
-	})
+  use({
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  })
 
-	use("lukas-reineke/indent-blankline.nvim")
+  use({
+    "numToStr/Comment.nvim",
+  })
 
-	-- im tired
-	-- make it pretty baby
-	use("neovim/nvim-lspconfig")
+  use("lukas-reineke/indent-blankline.nvim")
 
-	use("stevearc/conform.nvim")
+  -- im tired
+  -- make it pretty baby
+  use("neovim/nvim-lspconfig")
 
-	use({
-		"echasnovski/mini.diff",
-		config = function()
-			local diff = require("mini.diff")
-			diff.setup({
-				-- Disabled by default
-				source = diff.gen_source.none(),
-			})
-		end,
-	})
+  use("stevearc/conform.nvim")
 
-	-- my favret dumb code companion
-	use({
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({
-				suggestion = {
-					enabled = true,
-					auto_trigger = false,
-					debounce = 75,
-					keymap = {
-						accept = "<C-a>",
-						accept_word = false,
-						accept_line = false,
-						next = "<C-s>",
-						prev = "<C-w>",
-						dismiss = "<C-x>",
-					},
-				},
-				filetypes = {
-					["*"] = true,
-					yaml = false,
-					markdown = false,
-					help = false,
-					gitcommit = false,
-					gitrebase = false,
-					hgcommit = false,
-					svn = false,
-					cvs = false,
-					["."] = false,
-				},
-				copilot_node_command = "node", -- Node.js version must be > 18.x
-				server_opts_overrides = {},
-			})
-		end,
-	})
+  use({
+    "echasnovski/mini.diff",
+    config = function()
+      local diff = require("mini.diff")
+      diff.setup({
+        -- Disabled by default
+        source = diff.gen_source.none(),
+      })
+    end,
+  })
 
-	use({
-		"MeanderingProgrammer/render-markdown.nvim",
-		requires = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("render-markdown").setup({
-				latex = { enabled = false },
-				file_types = { "markdown", "codecompanion" },
-				render_modes = true,
-			})
-		end,
-	})
+  -- my favret dumb code companion
+  use({
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = false,
+          debounce = 75,
+          keymap = {
+            accept = "<C-a>",
+            accept_word = false,
+            accept_line = false,
+            next = "<C-s>",
+            prev = "<C-w>",
+            dismiss = "<C-x>",
+          },
+        },
+        filetypes = {
+          ["*"] = true,
+          yaml = false,
+          markdown = false,
+          help = false,
+          gitcommit = false,
+          gitrebase = false,
+          hgcommit = false,
+          svn = false,
+          cvs = false,
+          ["."] = false,
+        },
+        copilot_node_command = "node", -- Node.js version must be > 18.x
+        server_opts_overrides = {},
+      })
+    end,
+  })
 
-	use({
-		"olimorris/codecompanion.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"ravitemer/codecompanion-history.nvim",
-		},
-	})
-	use({
-		"lewis6991/gitsigns.nvim",
-	})
+  use({
+    "MeanderingProgrammer/render-markdown.nvim",
+    requires = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("render-markdown").setup({
+        latex = { enabled = false },
+        file_types = { "markdown", "codecompanion" },
+        render_modes = true,
+      })
+    end,
+  })
 
-	use({
-		"j-hui/fidget.nvim",
-	})
+  use({
+    "olimorris/codecompanion.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "ravitemer/codecompanion-history.nvim",
+    },
+  })
+  use({
+    "lewis6991/gitsigns.nvim",
+  })
 
-	-- nvim tree
-	use({
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons",
-		},
-	})
+  use({
+    "j-hui/fidget.nvim",
+  })
 
-	-- please please change file import paths when I move files around PLEASE (it's 04:25 AM)
-	use({
-		"antosha417/nvim-lsp-file-operations",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-tree.lua",
-		},
-		config = function()
-			require("lsp-file-operations").setup()
-		end,
-	})
+  -- nvim tree
+  use({
+    "nvim-tree/nvim-tree.lua",
+    requires = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  })
 
-	-- aerial
-	use({
-		"stevearc/aerial.nvim",
-	})
+  -- please please change file import paths when I move files around PLEASE (it's 04:25 AM)
+  use({
+    "antosha417/nvim-lsp-file-operations",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-tree.lua",
+    },
+    config = function()
+      require("lsp-file-operations").setup()
+    end,
+  })
 
-	-- git wrapper
-	use("tpope/vim-fugitive")
+  -- aerial
+  use({
+    "stevearc/aerial.nvim",
+  })
 
-	-- language servers
-	use({
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
-		requires = {
-			--- Uncomment these if you want to manage LSP servers from neovim
-			{ "williamboman/mason.nvim", version = "^1.0.0" },
-			{ "williamboman/mason-lspconfig.nvim", version = "^1.0.0" },
+  -- git wrapper
+  use("tpope/vim-fugitive")
 
-			-- LSP Support
-			{ "neovim/nvim-lspconfig" },
-			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "L3MON4D3/LuaSnip" },
-		},
-	})
+  -- language servers
+  use({
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
+    requires = {
+      --- Uncomment these if you want to manage LSP servers from neovim
+      { "williamboman/mason.nvim",           version = "^1.0.0" },
+      { "williamboman/mason-lspconfig.nvim", version = "^1.0.0" },
 
-	use({
-		"jim-at-jibba/micropython.nvim",
-		requires = { "akinsho/toggleterm.nvim", "stevearc/dressing.nvim" },
-	})
+      -- LSP Support
+      { "neovim/nvim-lspconfig" },
+      -- Autocompletion
+      { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "L3MON4D3/LuaSnip" },
+    },
+  })
 
-	if packer_bootstrap then
-		require("packer").sync()
-	end
+  use({
+    "jim-at-jibba/micropython.nvim",
+    requires = { "akinsho/toggleterm.nvim", "stevearc/dressing.nvim" },
+  })
+
+  if packer_bootstrap then
+    require("packer").sync()
+  end
 end)
