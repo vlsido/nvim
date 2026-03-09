@@ -1,4 +1,5 @@
-# Nvim config for myself
+ 
+ a# Nvim config for myself
 This is a config myself can download and drop it into config folder for any machine (linux, win, macOS).
 
 ## Prerequisites

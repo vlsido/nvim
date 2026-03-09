@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
+  ["cinnamon.nvim"] = {
+    loaded = true,
+    path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/cinnamon.nvim",
+    url = "https://github.com/declancm/cinnamon.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -121,7 +126,7 @@ _G.packer_plugins = {
   },
   ["copilot.lua"] = {
     commands = { "Copilot" },
-    config = { "\27LJ\2\nÙ\1\0\0\4\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0024\3\0\0=\3\b\2B\0\2\1K\0\1\0\26server_opts_overrides\14filetypes\1\0\1\6*\1\15suggestion\1\0\4\14filetypes\0\26server_opts_overrides\0\15suggestion\0\25copilot_node_command\tnode\1\0\1\fenabled\1\nsetup\fcopilot\frequire\0" },
+    config = { "\27LJ\2\nš\3\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\0024\3\0\0=\3\n\2B\0\2\1K\0\1\0\26server_opts_overrides\14filetypes\1\0\n\6.\1\6*\2\bcvs\1\bsvn\1\rhgcommit\1\14gitrebase\1\14gitcommit\1\thelp\1\rmarkdown\1\tyaml\1\15suggestion\1\0\4\14filetypes\0\26server_opts_overrides\0\15suggestion\0\25copilot_node_command\tnode\vkeymap\1\0\6\tnext\n<C-s>\16accept_word\1\fdismiss\n<C-x>\tprev\n<C-w>\16accept_line\1\vaccept\n<C-a>\1\0\4\vkeymap\0\rdebounce\3K\17auto_trigger\1\fenabled\2\nsetup\fcopilot\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -142,6 +147,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["img-clip.nvim"] = {
+    config = { "\27LJ\2\nË\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\14filetypes\1\0\1\14filetypes\0\18codecompanion\1\0\1\18codecompanion\0\1\0\3\rtemplate\24[Image]($FILE_PATH)\25prompt_for_file_name\1\22use_absolute_path\2\nsetup\rimg-clip\frequire\0" },
+    loaded = true,
+    path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/img-clip.nvim",
+    url = "https://github.com/HakonHarnes/img-clip.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -173,6 +184,11 @@ _G.packer_plugins = {
     path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["mcphub.nvim"] = {
+    loaded = true,
+    path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/mcphub.nvim",
+    url = "https://github.com/ravitemer/mcphub.nvim"
+  },
   ["micropython.nvim"] = {
     loaded = true,
     path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/micropython.nvim",
@@ -198,6 +214,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-go"] = {
+    loaded = true,
+    path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/nvim-dap-go",
+    url = "https://github.com/leoluz/nvim-dap-go"
   },
   ["nvim-dap-ui"] = {
     loaded = true,
@@ -276,7 +297,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["render-markdown.nvim"] = {
-    config = { "\27LJ\2\n­\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\15file_types\1\3\0\0\rmarkdown\18codecompanion\nlatex\1\0\3\15file_types\0\nlatex\0\17render_modes\2\1\0\1\fenabled\1\nsetup\20render-markdown\frequire\0" },
+    config = { "\27LJ\2\n­\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\15file_types\1\3\0\0\rmarkdown\18codecompanion\nlatex\1\0\3\17render_modes\2\15file_types\0\nlatex\0\1\0\1\fenabled\1\nsetup\20render-markdown\frequire\0" },
     loaded = true,
     path = "/Users/Vladislav.Sidorenko/.local/share/nvim/site/pack/packer/start/render-markdown.nvim",
     url = "https://github.com/MeanderingProgrammer/render-markdown.nvim"
@@ -299,18 +320,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: mini.diff
-time([[Config for mini.diff]], true)
-try_loadstring("\27LJ\2\nm\0\0\6\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\5\0009\4\3\0009\4\4\4B\4\1\2=\4\6\3B\1\2\1K\0\1\0\vsource\1\0\1\vsource\0\tnone\15gen_source\nsetup\14mini.diff\frequire\0", "config", "mini.diff")
-time([[Config for mini.diff]], false)
+-- Config for: render-markdown.nvim
+time([[Config for render-markdown.nvim]], true)
+try_loadstring("\27LJ\2\n­\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\15file_types\1\3\0\0\rmarkdown\18codecompanion\nlatex\1\0\3\17render_modes\2\15file_types\0\nlatex\0\1\0\1\fenabled\1\nsetup\20render-markdown\frequire\0", "config", "render-markdown.nvim")
+time([[Config for render-markdown.nvim]], false)
+-- Config for: img-clip.nvim
+time([[Config for img-clip.nvim]], true)
+try_loadstring("\27LJ\2\nË\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\14filetypes\1\0\1\14filetypes\0\18codecompanion\1\0\1\18codecompanion\0\1\0\3\rtemplate\24[Image]($FILE_PATH)\25prompt_for_file_name\1\22use_absolute_path\2\nsetup\rimg-clip\frequire\0", "config", "img-clip.nvim")
+time([[Config for img-clip.nvim]], false)
 -- Config for: nvim-lsp-file-operations
 time([[Config for nvim-lsp-file-operations]], true)
 try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24lsp-file-operations\frequire\0", "config", "nvim-lsp-file-operations")
 time([[Config for nvim-lsp-file-operations]], false)
--- Config for: render-markdown.nvim
-time([[Config for render-markdown.nvim]], true)
-try_loadstring("\27LJ\2\n­\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\15file_types\1\3\0\0\rmarkdown\18codecompanion\nlatex\1\0\3\15file_types\0\nlatex\0\17render_modes\2\1\0\1\fenabled\1\nsetup\20render-markdown\frequire\0", "config", "render-markdown.nvim")
-time([[Config for render-markdown.nvim]], false)
+-- Config for: mini.diff
+time([[Config for mini.diff]], true)
+try_loadstring("\27LJ\2\nm\0\0\6\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\5\0009\4\3\0009\4\4\4B\4\1\2=\4\6\3B\1\2\1K\0\1\0\vsource\1\0\1\vsource\0\tnone\15gen_source\nsetup\14mini.diff\frequire\0", "config", "mini.diff")
+time([[Config for mini.diff]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

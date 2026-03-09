@@ -1,4 +1,5 @@
 require("megachel.packer")
+require("megachel.scrolling")
 require("megachel.theme-catppuccin")
 require("megachel.lualine")
 require("megachel.tree")

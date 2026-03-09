@@ -1,9 +1,15 @@
+require("mcphub").setup({
+  config = vim.fn.expand("~/.config/mcphub/servers.json"),
+})
+
 require("codecompanion").setup({
-	strategies = {
-		name = "copilot",
-		model = "gpt-5",
+  interactions = {
 		chat = {
-			keymaps = {
+      adapter = {
+        name = "copilot",
+        model = "gpt-5.4",
+      },
+      keymaps = {
 				send = {
 					modes = { n = "<C-s>", v = "<C-s>", i = "<C-s>" },
 				},
@@ -12,9 +18,55 @@ require("codecompanion").setup({
 					opts = {},
 				},
 			},
+      tools = {
+        ["run_command"] = {
+          opts = {
+            require_approval_before = true,
+          },
+        },
+        opts = {
+         auto_submit_errors = true, -- Send any errors to the LLM automatically?
+         auto_submit_success = true, -- Send any successful output to the LLM automatically?
+        },
+      },
 		},
+    inline = {
+      adapter = {
+        name = "copilot",
+        model = "gpt-5.2",
+      },
+    },
 	},
+  adapters = {
+    acp = {
+      codex = function()
+        return require("codecompanion.adapters").extend("codex", {
+          defaults = {
+            auth_method = "codex-api-key", -- "openai-api-key"|"codex-api-key"|"chatgpt"
+          },
+          env = {
+            OPENAI_API_KEY = "OPENAI_API_KEY",
+          },
+        })
+      end,
+      claude_code = function()
+        return require("codecompanion.adapters").extend("claude_code", {
+          env = {
+            CLAUDE_CODE_OAUTH_TOKEN = "CLAUDE_CODE_OAUTH_TOKEN",
+          },
+        })
+      end,
+    },
+  },
 	display = {
+    diff = {
+      enabled = true,
+      close_chat_at = 240,
+      layout = "vertical",
+      opts = { "internal", "filler", "closeoff", "algorithm:patience", "followwrap", "linematch:120" },
+      provider = "mini_diff", -- uses mini.diff for inline diff overlay
+      width = 0.5,  -- set diff window width (0.5 = 50% of editor width)
+    },
 		chat = {
 			window = {
 				layout = "vertical", -- float|vertical|horizontal|buffer
@@ -41,6 +93,15 @@ require("codecompanion").setup({
 		},
 	},
 	extensions = {
+    mcphub = {
+      callback = "mcphub.extensions.codecompanion",
+      opts = {
+        make_vars = true,
+        make_slash_commands = true,
+        make_tools = true,          -- expose MCP servers as tools Claude can call autonomously
+        show_result_in_chat = true,
+      }
+    },
 		history = {
 			enabled = true,
 			opts = {
@@ -66,9 +127,9 @@ require("codecompanion").setup({
 				auto_generate_title = true,
 				title_generation_opts = {
 					---Adapter for generating titles (defaults to current chat adapter)
-					adapter = nil, -- "copilot"
+					adapter = "copilot",
 					---Model for generating titles (defaults to current chat model)
-					model = nil, -- "gpt-4o"
+					model = "gpt-5-mini",
 					---Number of user prompts after which to refresh the title (0 to disable)
 					refresh_every_n_prompts = 0, -- e.g., 3 to refresh after every 3rd user prompt
 					---Maximum number of times to refresh the title (default: 3)
@@ -107,7 +168,7 @@ require("codecompanion").setup({
 				},
 
 				-- Memory system (requires VectorCode CLI)
-				memory = {
+				rules = {
 					-- Automatically index summaries when they are generated
 					auto_create_memories_on_summary_generation = true,
 					-- Path to the VectorCode executable
@@ -122,6 +183,29 @@ require("codecompanion").setup({
 					-- Index all existing memories on startup
 					-- (requires VectorCode 0.6.12+ for efficient incremental indexing)
 					index_on_startup = false,
+          default = {
+          description = "Collection of common files for all projects",
+          files = {
+        ".clinerules",
+        ".cursorrules",
+        ".goosehints",
+        ".rules",
+         ".windsurfrules",
+        ".github/copilot-instructions.md",
+        "AGENT.md",
+        "AGENTS.md",
+        { path = "CLAUDE.md", parser = "claude" },
+        { path = "CLAUDE.local.md", parser = "claude" },
+        { path = "~/.claude/CLAUDE.md", parser = "claude" },
+      },
+      is_preset = true,
+      },
+      opts = {
+      chat = {
+        autoload = "default", -- The rule groups to load
+        enabled = true,
+      },
+    },
 				},
 			},
 		},
@@ -134,3 +218,7 @@ vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, si
 
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd([[cab cc CodeCompanion]])
+
+local spinner = require("megachel.ai_spinner")
+spinner:init()
+

@@ -6,15 +6,15 @@ local workspace_dir = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(vim
 local lombok_path = home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar"
 
 local config = {
+	name = "jdtls",
 	cmd = {
-		"java", -- or '/path/to/java11_or_newer/bin/java'
+		"java",
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 		"-Dosgi.bundles.defaultStartLevel=4",
 		"-Declipse.product=org.eclipse.jdt.ls.core.product",
 		"-Dlog.protocol=true",
 		"-Dlog.level=ALL",
 		"-Xms1g",
-		"--add-modules=ALL-SYSTEM",
 		"--add-opens",
 		"java.base/java.util=ALL-UNNAMED",
 		"--add-opens",
@@ -23,7 +23,7 @@ local config = {
 		"-jar",
 		vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
 		"-configuration",
-		home .. "/.local/share/nvim/mason/packages/jdtls/config_mac_arm", -- Adjust for your OS
+		home .. "/.local/share/nvim/mason/packages/jdtls/config_mac_arm",
 		"-data",
 		workspace_dir,
 	},
@@ -56,7 +56,7 @@ local config = {
 	init_options = {
 		bundles = {
 			vim.fn.glob(
-				"/Users/parsivoe/.m2/repository/com/microsoft/java/com.microsoft.java.debug.plugin/0.53.2/com.microsoft.java.debug.plugin-*.jar",
+				home .. "/.m2/repository/com/microsoft/java/com.microsoft.java.debug.plugin/*/com.microsoft.java.debug.plugin-*.jar",
 				1
 			),
 		},
@@ -86,3 +86,4 @@ vim.keymap.set(
 	"<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>",
 	{ desc = "Extract Method" }
 )
+

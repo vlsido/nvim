@@ -50,6 +50,14 @@ return require("packer").startup(function(use)
     branch = "master",
   })
 
+use({
+  "declancm/cinnamon.nvim",
+  version = "*", -- use latest release
+  opts = {
+    -- change default options here
+  },
+})
+
   use({
     -- Telescopik
     "nvim-telescope/telescope.nvim",
@@ -144,6 +152,21 @@ return require("packer").startup(function(use)
   })
 
   use({
+  "HakonHarnes/img-clip.nvim",
+  config = function()
+    require("img-clip").setup({
+      filetypes = {
+        codecompanion = {
+          prompt_for_file_name = false,
+          template = "[Image]($FILE_PATH)",
+          use_absolute_path = true,
+        },
+      },
+    })
+  end,
+})
+
+  use({
     "MeanderingProgrammer/render-markdown.nvim",
     requires = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -157,10 +180,12 @@ return require("packer").startup(function(use)
 
   use({
     "olimorris/codecompanion.nvim",
+    commit = "558518f8d78a44198cd428f6bf8bf48bfa38d76d",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
+      "ravitemer/mcphub.nvim",
     },
   })
   use({
