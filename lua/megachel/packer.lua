@@ -84,15 +84,6 @@ use({
     "brenoprata10/nvim-highlight-colors",
   })
 
-  -- Commenting code
-
-  use({
-    "JoosepAlviste/nvim-ts-context-commentstring",
-  })
-
-  use({
-    "numToStr/Comment.nvim",
-  })
 
   use("lukas-reineke/indent-blankline.nvim")
 

@@ -1,11 +1,3 @@
-local actions = require("telescope.actions")
-
-local open_after_tree = function(prompt_bufnr)
-	vim.defer_fn(function()
-		actions.select_default(prompt_bufnr)
-	end, 100) -- Delay allows filetype and plugins to settle before opening
-end
-
 require("telescope").setup({
 	 defaults = {
     layout_strategy = "vertical",
@@ -19,10 +11,6 @@ require("telescope").setup({
         preview_height = 0.5, -- preview below results (50% of picker)
       },
     },
-	  mappings = {
-	    i = { ["<CR>"] = open_after_tree },
-	    n = { ["<CR>"] = open_after_tree },
-	  },
 	},
 })
 
